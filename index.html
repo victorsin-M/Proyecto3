@@ -253,6 +253,115 @@ th {
     margin-left: 20px;
     border-radius: 10px;
 }
+/* Estilos para los contenedores de mapas de imagen */
+.mapa-container {
+    background: var(--white);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 900px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+}
+
+.mapa-container h3 {
+    font-size: 1.8rem; 
+    font-weight: bold;
+    color: var(--header-background);
+    margin-bottom: 10px;
+}
+
+.mapa-container p {
+    margin-bottom: 15px;
+}
+
+/* Contenedor para la imagen y elementos hover */
+.mapa-imagen-wrapper {
+    position: relative;
+    margin: 0 auto;
+    max-width: 100%;
+    display: inline-block;
+}
+
+.mapa-imagen {
+    display: block;
+    margin: 20px auto;
+    width: 80%;
+    height: auto;
+    border: 3px solid var(--header-background);
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.mapa-imagen:hover {
+    transform: scale(1.02);
+}
+
+/* Elementos hover para los mapas */
+.hover-espacial, .hover-maritima, .hover-terrestre, .hover-salud, .hover-educacion {
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+/* Posiciones para el primer mapa - ajustar según las coordenadas definitivas */
+.hover-espacial {
+    top: 10px;
+    left: 100px;
+    width: 250px;
+    height: 90px;
+    background-color: rgba(0, 123, 255, 0.3); /* Usando tu color primario */
+    border: 2px solid rgba(0, 123, 255, 0.7);
+    border-radius: 8px;
+}
+
+.hover-maritima {
+    top: 120px;
+    left: 10px;
+    width: 160px;
+    height: 170px;
+    background-color: rgba(0, 123, 255, 0.3);
+    border: 2px solid rgba(0, 123, 255, 0.7);
+    border-radius: 8px;
+}
+
+.hover-terrestre {
+    top: 120px;
+    left: 190px;
+    width: 200px;
+    height: 170px;
+    background-color: rgba(0, 123, 255, 0.3);
+    border: 2px solid rgba(0, 123, 255, 0.7);
+    border-radius: 8px;
+}
+
+/* Posiciones para el segundo mapa */
+.hover-salud {
+    top: 30px;
+    left: 30px;
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    background-color: rgba(0, 123, 255, 0.3);
+    border: 2px solid rgba(0, 123, 255, 0.7);
+}
+
+.hover-educacion {
+    top: 30px;
+    left: 280px;
+    width: 200px;
+    height: 240px;
+    background-color: rgba(0, 123, 255, 0.3);
+    border: 2px solid rgba(0, 123, 255, 0.7);
+    border-radius: 8px;
+}
+
+/* Efectos de hover activos */
+.hover-espacial.active, .hover-maritima.active, .hover-terrestre.active, 
+.hover-salud.active, .hover-educacion.active {
+    opacity: 1;
+}
     </style>
    
 </head>
@@ -1354,7 +1463,43 @@ th {
                     
 
                 </article>
-                
+                <!-- Mapa de Imagen para Tipos de Exploración -->
+<div class="Menu_Informacion mapa-container">
+  <h2>Tecnologías de Exploración</h2>
+  <p>Haz clic en cada área para descubrir las tecnologías utilizadas en diferentes entornos</p>
+  
+  <div class="mapa-imagen-wrapper">
+    <img src="https://unamglobal.unam.mx/wp-content/uploads/2023/08/tecnoligia-espacial001-1024x605.jpg" alt="Tecnologías de Exploración" usemap="#mapExploracion" class="mapa-imagen">
+    
+    <div class="hover-espacial" title="Exploración Espacial"></div>
+    <div class="hover-maritima" title="Exploración Marítima"></div>
+    <div class="hover-terrestre" title="Exploración Terrestre"></div>
+  </div>
+  
+  <map name="mapExploracion">
+    <area shape="poly" coords="150,10,300,10,350,100,100,100" href="#espacial" alt="Exploración Espacial">
+    <area shape="poly" coords="10,120,170,120,170,290,10,290" href="#maritima" alt="Exploración Marítima">
+    <area shape="poly" coords="190,120,390,120,390,290,190,290" href="#terrestre" alt="Exploración Terrestre">
+  </map>
+</div>
+
+<!-- Mapa de Imagen para Aplicaciones Tecnológicas -->
+<div class="Menu_Informacion mapa-container">
+  <h2>Aplicaciones de la Tecnología</h2>
+  <p>Descubre cómo la tecnología de exploración se aplica en diferentes ámbitos</p>
+  
+  <div class="mapa-imagen-wrapper">
+    <img src="https://100seguro.com.py/wp-content/uploads/2023/11/Inteligencia-Artificial-y-apps.jpg" alt="Aplicaciones Tecnológicas" usemap="#mapAplicaciones" class="mapa-imagen">
+    
+    <div class="hover-salud" title="Tecnología en Salud"></div>
+    <div class="hover-educacion" title="Tecnología en Educación"></div>
+  </div>
+  
+  <map name="mapAplicaciones">
+    <area shape="circle" coords="150,150,120" href="#salud" alt="Tecnología en Salud">
+    <area shape="rect" coords="280,30,480,270" href="#educacion" alt="Tecnología en Educación">
+  </map>
+</div>
 
 
 
